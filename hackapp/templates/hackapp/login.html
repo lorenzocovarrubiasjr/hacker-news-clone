@@ -1,0 +1,17 @@
+{% extends "../layout.html" %}
+
+{% block content %}
+   
+    <form method="POST" action="">
+        {% csrf_token %}
+        {{ form.as_p }}
+            <button type="submit">Login</button>
+    </form>
+    
+    <div>
+        <small >
+            Would you like to signUp? <a href="{% url 'signup' %}">Sign Up</a>
+    
+    </div>
+   
+{% endblock %}

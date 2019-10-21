@@ -1,0 +1,47 @@
+
+{% extends 'layout.html' %}
+
+         <!--POSTS TABLE-->
+        {% block content %}
+        <table border="0" cellpadding="0" cellspacing="0" class="itemlist">
+           
+            {% for post in all_posts %}
+                
+                <tbody>
+                    <tr class="athing" id="21202905">
+                    <td align="right" valign="top" class="title">
+                        <span class="rank">{{ forloop.counter }}.</span>
+                    </td>      
+                    <td valign="top" class="votelinks">
+                        <center><a id="up_21202905" onclick="return vote(event, this, &quot;up&quot;)" href="vote?id=21202905&amp;how=up&amp;auth=1f73fe414f1e4134aa334c4b5c3d21a6fe262f02&amp;goto=news">
+                            <div class="votearrow" title="upvote"></div></a>
+                        </center>
+                    </td>
+
+                    <td class="title"><a href={{post.url}} class="storylink">{{post.title}}</a><span class="sitebit comhead"> (<a href={{post.url}}><span class="sitestr">{{post.url}}</span></a>)</span></td></tr><tr><td colspan="2"></td><td class="subtext">
+                        <span class="score" id="score_21202905">{{post.vote_count}} points</span> 
+                        by <a href="" class="hnuser">{{post.author}}</a> 
+                        <span class="age"><a href="item?id=21202905">{{post.created_at}}</a></span> 
+                        <span id="unv_21202905"></span> | 
+                        <a href="" onclick="return hidestory(event, this, 21202905)">hide</a> | 
+                        <a href='/post/{{post.id}}'>{{ post.comments_set.count }} comments</a>
+                        {% if account == post.author %}
+                        | <a href="edit?id=21210749">edit</a> 
+                        | <a href="/post/{{post.id}}/delete_post">delete</a>
+                        {% endif %}
+                        {% if account != post.author %}
+                        | <a href="/post/{{post.id}}/">discuss</a> 
+                        {% endif %}
+                        </td></tr> 
+
+            {% endfor %}
+                    <tr class="spacer" style="height:5px"></tr>
+                
+                    <tr class="morespace" style="height:10px"></tr><tr><td colspan="2"></td><td class="title"><a href="news?p=2" class="morelink" rel="next">More</a></td></tr>
+                </tbody>
+            </table>
+</td></tr>
+
+  {% endblock %}
+
+

@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+      {% for comment in comments %}
+          <table border="0" class="comment-tree">
+            <tbody><tr class="athing comtr " id="21218510"><td>
+              <table border="0">  
+                <tbody><tr>    
+                  <td class="ind"><img src="" height="1" width="0"></td>
+                    <td valign="top" class="votelinks">
+                      <center>  
+                        <a id="up_21218510" onclick="return vote(event, this, &quot;up&quot;)" href="vote?id=21218510&amp;how=up&amp;auth=caf5296fe44cf32101ac828ae4b6001ba7a0098d&amp;goto=item%3Fid%3D21218482#21218510">
+                        <div class="votearrow" title="upvote"></div></a>
+                      </center>
+                    </td>
+                    <td class="default">
+                      <div style="margin-top:2px; margin-bottom:-10px;">
+                        <span class="comhead">
+                          <a href="" class="hnuser">{{comment.author}}</a> 
+                          <span class="age"><a href="item?id=21218510">{{comment.created_at}}</a></span> 
+                          <span id="unv_21218510"></span>
+                          <span class="par"></span> 
+                          <a href="/post/{{comment.post.id}}/" class="hnuser">{{comment.post.title}}</a> 
+                          <span class="storyon"></span>
+                        </span>
+                      </div><br>
+                      <div class="comment">
+                          <span class="commtext c00">{{comment.body}}</span>
+                      <div class="reply">        
+                        <p>
+                          <font size="1">
+                            <u><a href="reply?id=21218510&amp;goto=item%3Fid%3D21218482%2321218510">reply</a></u>
+                          </font>
+                        </p>
+                      </div>
+                    </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table></td></tr>
+            </tbody>
+          </table>
+          <br><br>
+        {% endfor %}  
+  </td></tr> 
+
+  {% endblock %}
